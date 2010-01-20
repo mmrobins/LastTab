@@ -1,0 +1,3 @@
+A very basic attempt at some of the features of the Firefox plugin of the same name http://timothyhumphrey.name/firefox/lasttab.aspx
+Ctrl+s is the keyboard shortcut I've picked for now to switch to you most recently opened tab.
+After you close a tab the most recently used tab should then be selected.

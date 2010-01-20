@@ -1,0 +1,37 @@
+<html>
+<head>
+<script type="text/javascript">
+var tabIds = new Array();
+
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+  if(request.call == "changeTab") {
+    var currentTab = tabIds.shift();
+    var lastTab = tabIds.shift();
+    tabIds.unshift(currentTab);
+    chrome.tabs.update(lastTab, {selected: true}, null);
+    console.log('changed to tab' + lastTab);
+  }
+});
+
+chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
+  for(var i=0; i<tabIds.length; i++ ) {
+    if(tabIds[i]==tabId)
+        tabIds.splice(i,1);
+  }
+  tabIds.unshift(tabId);
+  console.log('changed to tab ' + tabId);
+  console.log(tabIds);
+});
+
+chrome.tabs.onRemoved.addListener(function(tabId) {
+  console.log(tabId + ' closed');
+  for(var i=0; i<tabIds.length; i++ ) {
+    if(tabIds[i]==tabId)
+        tabIds.splice(i,1);
+  }
+  var lastTab = tabIds.shift();
+  chrome.tabs.update(lastTab, {selected: true}, null);
+});
+</script>
+</html>
+</head>

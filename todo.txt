@@ -1,0 +1,9 @@
+[ ] icon so I can upload to google
+[ ] if you hold ctrl and continue to click it should keep going through the list
+[ ] options page to change the keyboard shortcut
+[ ] load/update tabs already active so that if you install or reinstall it you don't have to restart
+[ ] switch to most recent tab if the current tab icon is clicked - not sure there's a listener for that
+[ ] have it work on new pages where nothing is loaded yet.  problem is empty page doesn't load content scripts
+[ ] maybe have it work on the extensions page too, but based on docs it doesn't look possible now
+[ ] popup that shows a sorted list of tabs like the firefox version would be cool
+[ ] there has to be an easier way to remove an array element in javascript than an ugly for loop
